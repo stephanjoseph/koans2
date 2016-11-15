@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "ava koans.js"
+  },
+  "devDependencies": {
+    "eslint": "^3.10.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.3.2",
+    "eslint-plugin-standard": "^2.0.1",
+    "jest": "^17.0.2"
+  },
+  "ava": {
+    "failFast": true,
+    "serial": true,
+    "watch": true,
+    "verbose": true
+  },
+  "eslintConfig": {
+    "extends": "standard",
+    "rules": {
+      "prefer-const": "warn"
+    }
+  }
+}
