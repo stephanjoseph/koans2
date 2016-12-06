@@ -21,11 +21,11 @@ test('What is false?', t => {
   t.false(__)
 })
 
-test('What will satisfy the t.isity assertion?', t => {
+test('What will satisfy the equality assertion?', t => {
   t.is(__, 1 + 1)
 })
 
-test('What will satisfy the int.isity assertion?', t => {
+test('What will satisfy the inequality assertion?', t => {
   t.not(__, 1 + 1)
 })
 
@@ -350,4 +350,79 @@ test('Accessing object properties with strings.', t => {
 
   t.is(person['__'], 'Amory Blaine')
   t.is(person['__'], 102)
+})
+
+/**
+ * Regular Expressions
+ */
+
+test('What is executing a regular expression', (t) => {
+  const numberFinder = /(\d).*(\d)/
+  const results = numberFinder.exec('what if 6 turned out to be 9?')
+  t.is(results, [__, __, __])
+})
+
+test('Does the string provided contain "select"?', (t) => {
+  const containsSelect = /select/.test('  select * from users ')
+  t.is(__, containsSelect)
+})
+
+test('What is the value of matches?', (t) => {
+  const matches = 'what if 6 turned out to be 9?'.match(/(\d)/g)
+  t.true(matches.equalTo([__, __]), '')
+})
+
+test('What is the value of pie?', (t) => {
+  let pie = 'apple pie'.replace('apple', 'strawberry')
+  t.is(__, pie)
+
+  pie = 'what if 6 turned out to be 9?'.replace(/\d/g, function (number) { // the second parameter can be a string or a function
+    const map = {'6': 'six', '9': 'nine'}
+    return map[number]
+  })
+  t.is(__, pie)
+})
+
+/**
+ * Enumerating
+ */
+
+test('Use filter to return array items that meet a criteria', (t) => {
+  const numbers = [1, 2, 3]
+  const odd = numbers.filter((x) => {
+    return x % 2 !== 0
+  })
+
+  t.is(__, numbers.length)
+  t.is(__, odd)
+  t.is(__, odd.length)
+})
+
+test('Use map to transform each element', (t) => {
+  const numbers = [1, 2, 3]
+  const numbersPlus1 = numbers.map((x) => {
+    return x + 1
+  })
+
+  t.is(__, numbersPlus1)
+  t.is(__, numbers)
+})
+
+test('Use reduce to update the same result on each iteration', (t) => {
+  const numbers = [1, 2, 3]
+  const sum = numbers.reduce((memo, x) => {
+    return memo + x
+  }, 0)
+
+  t.is(__, sum)
+  t.is(__, numbers)
+})
+
+test('Use reduce to update the same result on each iteration', (t) => {
+  const onlyEven = [2, 4, 6]
+  const mixedBag = [2, 4, 5, 6]
+  const isEven = (x) => { return x % 2 === 0 }
+
+  t.is(__, onlyEven.any(isEven))
+  t.is(__, mixedBag.any(isEven))
 })
