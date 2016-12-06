@@ -307,7 +307,7 @@ test('What are stack methods on arrays?', t => {
   t.is(__, stack.pop())
 })
 
-test('What are queue methods on arrays', t => {
+test('What are queue methods on arrays?', t => {
   const queue = []
   queue.push('first')
   queue.push('second')
