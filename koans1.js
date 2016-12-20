@@ -6,7 +6,7 @@ const __ = undefined
  */
 
 test('What will satisfy the truthy assertion?', t => {
-  t.truthy(1)
+  t.truthy(true)
 })
 
 test('What is a falsey value?', t => {
