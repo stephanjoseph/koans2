@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "start": "npm test",
     "test": "ava koans.js"
   },
   "devDependencies": {
