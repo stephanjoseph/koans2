@@ -376,8 +376,8 @@ test('Use filter to return array items that meet a criteria', (t) => {
   })
 
   t.is(3, numbers.length)
-  t.deepEqual([1], odd)
-  t.is(1, 3, odd.length)
+  t.deepEqual([1, 3], odd)
+  t.is(2, odd.length)
 })
 
 test('Use map to transform each element', (t) => {
@@ -386,8 +386,8 @@ test('Use map to transform each element', (t) => {
     return x + 1
   })
 
-  t.deepEqual(__, numbersPlus1)
-  t.deepEqual(__, numbers)
+  t.deepEqual([2, 3, 4], numbersPlus1)
+  t.deepEqual([1, 2, 3], numbers)
 })
 
 test('Use reduce to update the same result on each iteration', (t) => {
@@ -396,8 +396,8 @@ test('Use reduce to update the same result on each iteration', (t) => {
     return memo + x
   }, 0)
 
-  t.is(__, sum)
-  t.deepEqual(__, numbers)
+  t.is(6, sum)
+  t.deepEqual([1, 2, 3], numbers)
 })
 
 test('Use some and every to determine if a function applied to any or all items is true', (t) => {
@@ -405,6 +405,6 @@ test('Use some and every to determine if a function applied to any or all items 
   const mixedBag = [2, 4, 5, 6]
   const isEven = x => x % 2 === 0
 
-  t.is(__, onlyEven.every(isEven))
-  t.is(__, mixedBag.some(isEven))
+  t.is(true, onlyEven.every(isEven))
+  t.is(true, mixedBag.some(isEven))
 })
